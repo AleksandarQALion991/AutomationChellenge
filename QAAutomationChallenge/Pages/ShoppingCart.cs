@@ -34,5 +34,9 @@ namespace QAAutomationChallenge.Pages
         //Payment step 2 - confirmation
         [FindsBy(How = How.XPath, Using = "//*[@id='cart_navigation']/button")]
         public IWebElement ConfirmOrderButton { get; set; }
+
+        //Confirmation step 
+        [FindsBy(How = How.XPath, Using = "//*[@id='center_column']/div/span/strong")]
+        public IWebElement Price { get; set; }
     }
 }

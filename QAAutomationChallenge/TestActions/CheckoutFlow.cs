@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using QAAutomationChallenge.Pages;
 
@@ -19,6 +20,8 @@ namespace QAAutomationChallenge.TestActions
             ActionsPerforming.ClickElement(driver, webDriverWait, shoppingCart.Bankwire, true);
 
             ActionsPerforming.ClickElement(driver, webDriverWait, shoppingCart.ConfirmOrderButton, true);
+
+            Assert.AreEqual(shoppingCart.Price.Text, "$33.80");
         }
 
         public static void DeleteProduct(IWebDriver driver, WebDriverWait webDriverWait, HomePage homePage, ShoppingCart shoppingCart)
