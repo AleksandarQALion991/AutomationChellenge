@@ -10,13 +10,13 @@ namespace QAAutomationChallenge.TestActions
     {
         public static void CreateAnAccount(IWebDriver driver, WebDriverWait webDriverWait, HomePage homePage, SignInPage signInPage, string email)
         {
-            homePage.SignInButton.Click();
+            ActionsPerforming.ClickElement(driver, webDriverWait, homePage.SignInButton);
 
             Thread.Sleep(2000);
 
             ActionsPerforming.InputOfStringWithSpecialCharacters(driver, webDriverWait, signInPage.EmailAddressSignInInput, email);
 
-            signInPage.SignInSubmitButton.Click();
+            ActionsPerforming.ClickElement(driver, webDriverWait, signInPage.SignInSubmitButton);
 
             Thread.Sleep(5000);
         }
@@ -24,7 +24,7 @@ namespace QAAutomationChallenge.TestActions
         public static void FillSignUpFormSubmit(IWebDriver driver, WebDriverWait webDriverWait, SignInFormPage signInFormPage, AccountPage accountPage)
         {
 
-            signInFormPage.TitleMr.Click();
+            ActionsPerforming.ClickElement(driver, webDriverWait, signInFormPage.TitleMr);
 
             ActionsPerforming.InputOfStringWithSpecialCharacters(driver, webDriverWait, signInFormPage.CustomerFirstName, 
                 Config.Credentials.Valid.FirstName);
@@ -68,30 +68,30 @@ namespace QAAutomationChallenge.TestActions
             ActionsPerforming.InputOfStringWithSpecialCharacters(driver, webDriverWait, signInFormPage.PhoneMobile, 
                 Config.Credentials.Valid.PhoneMobile);
 
-            signInFormPage.SubmitAccount.Click();
+            ActionsPerforming.ClickElement(driver, webDriverWait, signInFormPage.SubmitAccount);
 
             Thread.Sleep(3000);
 
-            Assert.IsTrue(accountPage.ViewMyAccountButton.Displayed);
+            Assert.IsTrue(accountPage.ViewMyAccountButton.Displayed && accountPage.MyAccountSection.Displayed);
         }
 
         public static void LogIn(IWebDriver driver, WebDriverWait webDriverWait, AccountPage accountPage, HomePage homePage, SignInPage signInPage, string email)
         {
-            accountPage.SignOutButton.Click();
+            ActionsPerforming.ClickElement(driver, webDriverWait, accountPage.SignOutButton);
             Thread.Sleep(2000);
 
-            homePage.SignInButton.Click();
+            ActionsPerforming.ClickElement(driver, webDriverWait, homePage.SignInButton);
             Thread.Sleep(2000);
 
             ActionsPerforming.InputOfStringWithSpecialCharacters(driver, webDriverWait, signInPage.LogInEmail, email);
 
             ActionsPerforming.InputOfStringWithSpecialCharacters(driver, webDriverWait, signInPage.LogInPassword, Config.Credentials.Valid.Password);
 
-            signInPage.LogInSubmit.Click();
+            ActionsPerforming.ClickElement(driver, webDriverWait, signInPage.LogInSubmit);
 
             Thread.Sleep(2000);
 
-            Assert.IsTrue(accountPage.ViewMyAccountButton.Displayed);
+            Assert.IsTrue(accountPage.ViewMyAccountButton.Displayed && accountPage.MyAccountSection.Displayed);
         }
     }
 }

@@ -7,6 +7,7 @@ using WaitHelpers = SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Interactions;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace QAAutomationChallenge
 {
@@ -41,6 +42,34 @@ namespace QAAutomationChallenge
             }
 
         }
+
+
+        public static void ClickElement(IWebDriver webDriver, WebDriverWait webDriverWait, IWebElement webElement, bool withTimeout = false)
+        {
+
+            try
+            {
+                var javaScriptExecutor = webDriver as IJavaScriptExecutor;
+
+                javaScriptExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", webElement);
+
+                if (withTimeout)
+                {
+                    Thread.Sleep(2000);
+                }
+
+                javaScriptExecutor.ExecuteScript("arguments[0].click();", webElement);
+                //webElement.Click();
+            }
+            catch (Exception ex)
+            {
+                textMessageFailed = "\nClicking on web element " + webElement + "could not be perfomed!";
+                textMessageFailed += "\nException: " + ex.ToString();
+                Assert.Fail(textMessageFailed);
+            }
+
+        }
+
         public static void InputOfStringWithSpecialCharacters(IWebDriver webDriver, WebDriverWait webDriverWait, IWebElement webElement, string inputString)
         {
             var action = new Actions(webDriver);

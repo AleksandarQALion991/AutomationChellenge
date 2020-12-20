@@ -15,6 +15,8 @@ namespace QAAutomationChallenge.Pages
 
         [FindsBy(How = How.ClassName, Using = "account")]
         public IWebElement ViewMyAccountButton { get; set; }
-        
+
+        [FindsBy(How = How.ClassName, Using = "myaccount-link-list")]
+        public IWebElement MyAccountSection { get; set; }
     }
 }

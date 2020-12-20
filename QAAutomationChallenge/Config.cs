@@ -35,7 +35,7 @@ namespace QAAutomationChallenge
         {
             public static class SearchItems
             {
-                public static string SearchTerm = "Printed dresses";
+                public static string SearchTerm = "Printed Summer Dress";
             }
         }
     }

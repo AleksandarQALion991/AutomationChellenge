@@ -33,17 +33,28 @@ namespace QAAutomationChallenge.Extensions
             SignInFormPage signInFormPage = new SignInFormPage();
             AccountPage accountPage = new AccountPage();
             WebDriverWait webDriverWait = new WebDriverWait(Driver.driver, TimeSpan.FromSeconds(20));
+            Products products = new Products();
+            ProductDetailsPage detailsPage = new ProductDetailsPage();
+            ShoppingCart shoppingCart = new ShoppingCart();
 
             try
             {
-                //Testing 'Sign Up' page
+                //Testing 'Sign Up' option
                 SignIn.CreateAnAccount(Driver.driver, webDriverWait, homePage, signInPage, generatedEmail);
 
                 SignIn.FillSignUpFormSubmit(Driver.driver, webDriverWait, signInFormPage, accountPage);
 
+                //Testing 'Log In' option
                 SignIn.LogIn(Driver.driver, webDriverWait, accountPage, homePage, signInPage, generatedEmail);
 
-                ActionsPerforming.InputOfStringWithSpecialCharacters(Driver.driver, webDriverWait, homePage.SearhInput, Config.TestData.SearchItems.SearchTerm);
+                //Adding products to cart using search input
+                OrderProcess.AddBySearchInput(Driver.driver, webDriverWait, homePage, products, detailsPage);
+
+                //Remove product from cart
+                CheckoutFlow.DeleteProduct(Driver.driver, webDriverWait, homePage, shoppingCart);
+
+                //Complete checkout flow
+                CheckoutFlow.CompleteCheckout(Driver.driver, webDriverWait, shoppingCart);
 
                 _testOutcome = UnitTestOutcome.Passed;
             }
