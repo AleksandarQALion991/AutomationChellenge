@@ -29,7 +29,6 @@ namespace QAAutomationChallenge
                 public static string State = "1"; //Alabama
 
             }
-
         }
 
         public static class TestData

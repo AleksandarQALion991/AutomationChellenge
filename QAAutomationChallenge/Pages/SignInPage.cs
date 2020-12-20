@@ -18,6 +18,14 @@ namespace QAAutomationChallenge.Pages
 
         [FindsBy(How = How.Id, Using = "create_account_error")]
         public IWebElement CreateAccountError { get; set; }
-      
+
+        [FindsBy(How = How.Id, Using = "email")]
+        public IWebElement LogInEmail { get; set; }
+
+        [FindsBy(How = How.Id, Using = "passwd")]
+        public IWebElement LogInPassword { get; set; }
+
+        [FindsBy(How = How.Id, Using = "SubmitLogin")]
+        public IWebElement LogInSubmit { get; set; }
     }
 }

@@ -87,43 +87,5 @@ namespace QAAutomationChallenge
                 textMessageFailed += "\nException: " + ex.ToString();
             }
         }
-
-        public static void OutputTestResults(IWebDriver webDriver, string textMessage)
-        {
-
-            var workSpacePath = @"../../../../../../";
-
-            var actualDate = DateTime.Now.ToString("yyyy-MM-dd");
-
-            var logFileDirectory = workSpacePath + "/Test Results/Log Files/" + actualDate;
-
-            var timeStamp = DateTime.Now.ToString("yyyy-MM-dd_HH.mm.ss");
-
-            var textMessageOutput = String.Empty;
-            var logFilePath = String.Empty;
-
-            try
-            {
-                textMessageOutput = textMessage;
-
-                logFilePath = logFileDirectory + "/Passed Tests/" + "_" + "_passed_" + timeStamp + ".txt";
-
-                if (!Directory.Exists(logFileDirectory + "/Passed Tests/"))
-                {
-                    Directory.CreateDirectory(logFileDirectory + "/Passed Tests/");
-                }
-
-                Console.WriteLine(textMessageOutput);
-
-                File.WriteAllText(logFilePath, textMessageOutput, Encoding.UTF8);
-            }
-            catch (Exception ex)
-            {
-                textMessageFailed = "\nSaving log file failed!";
-                textMessageFailed += "\nException: " + ex.ToString();
-                Assert.Fail(textMessageFailed);
-            }
-        }
-
     }
 }

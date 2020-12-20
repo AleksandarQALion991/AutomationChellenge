@@ -12,5 +12,9 @@ namespace QAAutomationChallenge.Pages
 
         [FindsBy(How = How.ClassName, Using = "logout")]
         public IWebElement SignOutButton { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "account")]
+        public IWebElement ViewMyAccountButton { get; set; }
+        
     }
 }
