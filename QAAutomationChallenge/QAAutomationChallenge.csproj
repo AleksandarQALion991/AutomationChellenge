@@ -83,6 +83,7 @@
     <Compile Include="TestActions\SignIn.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Configuration\Windows\copy-junit.bat" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

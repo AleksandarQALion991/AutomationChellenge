@@ -41,7 +41,7 @@ namespace QAAutomationChallenge.Extensions
 
             try
             {
-                //Testing 'Sign Up' option
+                //Testing 'Sign Up' option 
                 SignIn.CreateAnAccount(Driver.driver, webDriverWait, homePage, signInPage, generatedEmail);
 
                 SignIn.FillSignUpFormSubmit(Driver.driver, webDriverWait, signInFormPage, accountPage);
