@@ -8,10 +8,18 @@ namespace QAAutomationChallenge.Extensions
 {
     public sealed class TestHelper
     {
-        public string _textMessage = String.Empty;
+        private static readonly TestHelper _instance = new TestHelper();
+        public string _textMessage = string.Empty;
         private UnitTestOutcome _testOutcome;
 
-        public static TestHelper Instance { get; } = new TestHelper();
+        public static TestHelper Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
 
         public void TestExecution()
         {
