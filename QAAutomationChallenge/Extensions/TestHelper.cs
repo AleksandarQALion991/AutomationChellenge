@@ -15,6 +15,7 @@ namespace QAAutomationChallenge.Extensions
 
         public void TestExecution()
         {
+            //Paremeters
             var textMessageFailed = string.Empty;
             var generatedEmail = Config.Credentials.Valid.Email;
 
