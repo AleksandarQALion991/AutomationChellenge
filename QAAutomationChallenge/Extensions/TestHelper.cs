@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using log4net;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Support.UI;
 using QAAutomationChallenge.Pages;
 using QAAutomationChallenge.TestActions;
@@ -9,6 +10,8 @@ namespace QAAutomationChallenge.Extensions
     public sealed class TestHelper
     {
         private static readonly TestHelper _instance = new TestHelper();
+        private static ILog _logger = LogManager.GetLogger(typeof(TestHelper));
+
         public string _textMessage = string.Empty;
         private UnitTestOutcome _testOutcome;
 
