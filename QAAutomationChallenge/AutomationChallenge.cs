@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QAAutomationChallenge.Extensions;
+using System;
 
 namespace QAAutomationChallenge
 {

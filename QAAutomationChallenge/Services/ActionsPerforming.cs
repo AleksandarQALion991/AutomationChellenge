@@ -19,7 +19,7 @@ namespace QAAutomationChallenge
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--start-maximized");
-            Driver.driver = new ChromeDriver(options);
+            Driver.driver = new ChromeDriver(@"../../" + "Configuration/Windows/", options);
         }
 
         public static void SelectVisibleTextFromDropbox(IWebDriver webDriver, WebDriverWait webDriverWait, IWebElement webElement, string selectVisibleText)
