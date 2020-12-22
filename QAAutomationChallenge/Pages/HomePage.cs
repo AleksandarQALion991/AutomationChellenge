@@ -10,7 +10,7 @@ namespace QAAutomationChallenge.Pages
             PageFactory.InitElements(Driver.driver, this);
         }
 
-        [FindsBy(How = How.ClassName, Using = "login")]
+        [FindsBy(How = How.ClassName, Using = "login")] 
         public IWebElement SignInButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "search_query_top")]
