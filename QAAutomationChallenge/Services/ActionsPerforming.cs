@@ -15,11 +15,11 @@ namespace QAAutomationChallenge
     {
         private static string textMessageFailed = String.Empty;
 
-        public static void InitializeDriverChrome()
+        public static void InitializeDriverChrome(string driverPath)
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--start-maximized");
-            Driver.driver = new ChromeDriver(@"../../" + "Configuration/Windows/", options);
+            Driver.driver = new ChromeDriver(driverPath, options);
         }
 
         public static void SelectVisibleTextFromDropbox(IWebDriver webDriver, WebDriverWait webDriverWait, IWebElement webElement, string selectVisibleText)

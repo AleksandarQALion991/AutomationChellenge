@@ -7,11 +7,16 @@ namespace QAAutomationChallenge
     [TestClass]
     public class AutomationChallenge
     {
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
+        {
+            var driverPath = @"../../" + "Configuration/Windows/";
+            ActionsPerforming.InitializeDriverChrome(driverPath);
+        }
 
         [TestMethod]
         public void TestChromeWindows()
         {
-            ActionsPerforming.InitializeDriverChrome();
             Driver.driver.Navigate().GoToUrl(Config.BaseURL);
             TestHelper.Instance.TestExecution();
         }
