@@ -97,7 +97,7 @@ namespace QAAutomationChallenge
         public static void TakingScreenshotOnFailure(IWebDriver webDriver)
         {
             var timeStamp = DateTime.Now.ToString("yyyy-MM-dd_HH.mm.ss");
-            string screenshotsFolder = Directory.GetCurrentDirectory() + @"\FailedTestScreenshots";
+            string screenshotsFolder = @"../../" + "Screenshots/FailedTestScreenshots";
 
             try
             {
@@ -106,10 +106,10 @@ namespace QAAutomationChallenge
 
                 if (!Directory.Exists(screenshotsFolder))
                 {
-                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\FailedTestScreenshots");
+                    Directory.CreateDirectory(@"../../" + "Screenshots/FailedTestScreenshots");
                 }
 
-                failedTestScreenshot.SaveAsFile(Directory.GetCurrentDirectory() + @"\FailedTestScreenshots\failedtestscreenshot_" + timeStamp + ".png", ScreenshotImageFormat.Png);
+                failedTestScreenshot.SaveAsFile(@"../../" + "Screenshots/FailedTestScreenshots/" + "failedtestscreenshot_" + timeStamp + ".png", ScreenshotImageFormat.Png);
             }
             catch (Exception ex)
             {
