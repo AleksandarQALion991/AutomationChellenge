@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using log4net;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QAAutomationChallenge.Extensions;
 
 namespace QAAutomationChallenge
