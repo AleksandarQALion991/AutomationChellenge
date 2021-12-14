@@ -248,6 +248,7 @@ paket-files/
 
 # FAKE - F# Make
 .fake/
+/Test Results
 
 # JetBrains Rider
 .idea/
